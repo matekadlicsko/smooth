@@ -84,7 +84,8 @@ def _check_lags(lags, obs_in_sample, silent=False):
     max_lag = max(lags) if lags else 1
     if max_lag >= obs_in_sample:
         _warn(
-            f"The maximum lags value is {max_lag}, while sample size is {obs_in_sample}. I cannot guarantee that I'll be able to fit the model.",
+            f"The maximum lags value is {max_lag}, while sample size is {obs_in_sample}. "
+            "I cannot guarantee that I'll be able to fit the model.",
             silent,
         )
 
@@ -660,7 +661,7 @@ def _check_phi(phi, damped, silent=False):
                 p = float(phi)
                 if p <= 0 or p >= 2:
                     _warn(
-                        f"Damping parameter should lie in (0,2). Changing to estimate with initial=0.95",
+                        "Damping parameter should lie in (0,2). Changing to estimate with initial=0.95",
                         silent,
                     )
                     phi_val = 0.95
